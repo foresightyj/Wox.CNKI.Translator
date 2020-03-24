@@ -51,7 +51,7 @@ namespace Wox.CNKI.Translator
             }
             catch (Exception e)
             {
-                _context.API.ShowMsg("Oops: " + e.Message);
+                //_context.API.ShowMsg("Oops: " + e.Message);
                 return Enumerable.Empty<Result>().ToList();
             }
         }

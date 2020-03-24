@@ -30,8 +30,17 @@ namespace Wox.CNKI.Translator
             {
                 var body = new FormUrlEncodedContent(new Dictionary<string, string>() { { "searchword", q }, { "txt2", q }, { "saveID", q }, });
                 var res = httpClient.PostAsync("http://dict.cnki.net/dict_result.aspx", body).Result;
+                if (res.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    //toast("Oops. Status Code: " + res.StatusCode);
+                    return results;
+                }
                 var html = res.Content.ReadAsStringAsync().Result;
-
+                if (string.IsNullOrEmpty(html))
+                {
+                    //toast("Oops. Empty response");
+                    return results;
+                }
                 var doc = new HtmlAgilityPack.HtmlDocument();
                 doc.LoadHtml(html);
                 var fonts = doc.DocumentNode.SelectNodes(@"//div[@class=""zztj""]/ul/li/font");

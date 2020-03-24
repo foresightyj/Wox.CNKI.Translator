@@ -4,7 +4,7 @@
   "Name": "CNKI",
   "Description": "CNKI Translator",
   "Author": "yuanjian",
-  "Version": "1.0.2",
+  "Version": "1.0.5",
   "Language": "csharp",
   "Website": "https://github.com/foresightyj/Wox.CNKI.Translator",
   "IcoPath": "Images\\icon.png",
