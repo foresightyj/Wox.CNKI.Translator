@@ -1,12 +1,12 @@
 {
-  "ID": "2f4e384e-76ce-45c3-aea2-b16f5e5c796f",
-  "ActionKeyword": "t",
+  "ID": "D1D9B10CB2714221A64CAD7911E9A83A",
+  "ActionKeyword": "k",
   "Name": "CNKI",
   "Description": "CNKI Translator",
   "Author": "yuanjian",
   "Version": "1.0.0",
   "Language": "csharp",
-  "Website": "https://github.com/Wox-launche/Wox",
-  "IcoPath": "Images\\ico.png",
+  "Website": "https://github.com/foresightyj/Wox.CNKI.Translator",
+  "IcoPath": "Images\\icon.png",
   "ExecuteFileName": "Wox.CNKI.Translator.dll"
 }
