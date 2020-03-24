@@ -34,12 +34,13 @@ namespace Wox.CNKI.Translator
 
                 var doc = new HtmlAgilityPack.HtmlDocument();
                 doc.LoadHtml(html);
-                var nodes = doc.DocumentNode.QuerySelectorAll(".zztj font a:first-child");
-                foreach (var node in nodes)
-                {
-                    var translation = node.InnerText;
-                    var count = node.NextSiblingOfType(HtmlNodeType.Element).InnerText;
+                var fonts = doc.DocumentNode.SelectNodes(@"//div[@class=""zztj""]/ul/li/font");
 
+                foreach (var font in fonts)
+                {
+                    var r = font.ChildNodes.Where(n => n.NodeType == HtmlNodeType.Element).Select(c => c.InnerText).ToList();
+                    var translation = r[0];
+                    var count = r[1];
                     results.Add(new Result
                     {
                         Title = translation,

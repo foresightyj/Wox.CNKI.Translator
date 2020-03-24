@@ -42,10 +42,18 @@ namespace Wox.CNKI.Translator
 
         public List<Result> Query(Query query)
         {
-            return Translator.Translate(query.Search, msg =>
+            try
             {
-                _context.API.ShowMsg(msg);
-            });
+                return Translator.Translate(query.Search, msg =>
+               {
+                   _context.API.ShowMsg(msg);
+               });
+            }
+            catch (Exception e)
+            {
+                _context.API.ShowMsg("Oops: " + e.Message);
+                return Enumerable.Empty<Result>().ToList();
+            }
         }
 
     }
